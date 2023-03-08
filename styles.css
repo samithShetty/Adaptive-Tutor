@@ -1,0 +1,66 @@
+h1
+{
+    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+body
+{
+  background-color: lightgray;
+}
+
+.navigation
+{
+  text-align: center;
+}
+
+.navigation a
+{
+  font-weight: bold;
+  font-size: larger;
+  background-color: lightgray;
+}
+
+.question
+{
+    background-color: aquamarine;
+    font-size: 64px;
+    margin-top: 200px;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-width:3px;
+    border-style:solid;
+    border-color: black;
+}
+
+.answerBox
+{
+    background-color: aquamarine;
+    font-size: 50px;
+    margin-top: 50px;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-width:3px;
+    border-style:solid;
+    border-color: black;
+    text-align: center;
+}
+
+.biggerInput
+{
+    font-size: 32px;
+}
+
+.bigSubmit
+{
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.selectSubject
+{
+    background-color: aquamarine;
+    font-size: 64px;
+
+}
