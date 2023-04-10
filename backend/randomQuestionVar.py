@@ -1,6 +1,9 @@
+from flask import Flask
+from flask_cors import CORS
 import random
 import re
 
+@app.route('/time')
 def generate_equation():
     num_terms = random.randint(3, 4)
     terms = []
