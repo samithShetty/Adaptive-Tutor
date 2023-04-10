@@ -1,19 +1,22 @@
-import React , {useState, useEffect} from "react"
+import React , {useState, useEffect} from "react";
+import "./App.css";
+import {Login} from "./Login";
+import { Register } from "./Register";
 
 function App() {
-  const [time, setTime] = useState('');
+  const [currentForm, setCurrentForm] = useState('login');
 
-  useEffect(() => {
-    fetch('http://localhost:5000/time')
-      .then(response => response.json())
-      .then(data => setTime(data.time));
-  }, []);
-  
+  const toggleForm = (formName) => {
+    setCurrentForm(formName);
+  }
+
   return (
-    <div>
-      <h1>Current Time: {time}</h1>
+    <div className="App">
+      {
+        currentForm === "login" ? <Login onFormSwitch={toggleForm}/> : <Register onFormSwitch={toggleForm}/> 
+      }
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
