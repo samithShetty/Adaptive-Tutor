@@ -42,6 +42,6 @@ for x in range(1, terms-1):
     #    currentSolution = currentSolution / termsSolve[x+1]
     elif operationsSolve[x] == '+':
         currentSolution = currentSolution + termsSolve[x+1]
-    print(currentSolution)
+    #print(currentSolution)
 
 print(currentSolution)

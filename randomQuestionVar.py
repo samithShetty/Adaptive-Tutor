@@ -49,9 +49,11 @@ def solve_equation(equation):
 def main():
     equation = generate_equation()
     xValue = solve_equation(equation)
+    xValueRound = round(xValue, 2)
 
     print(equation)
     print(xValue)
+    print(xValueRound)
 
     
 
