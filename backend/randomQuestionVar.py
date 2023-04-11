@@ -1,9 +1,7 @@
-from flask import Flask
-from flask_cors import CORS
 import random
 import re
+import string
 
-@app.route('/time')
 def generate_equation():
     num_terms = random.randint(3, 4)
     terms = []
@@ -19,46 +17,48 @@ def generate_equation():
 
     equation += f" = {terms[-1]}X"
 
-    return equation
+    answer = solve_equation(equation)
+    return {"problem": equation, "answer": answer}
 
 def solve_equation(equation):
+
+    left_x_values = []
+    right_x_values = []
+    left_constants = []
+    right_constants = []
+    left_test = []
+
     # Split the equation into left and right sides
     left, right = equation.split("=")
 
-    # Define regular expressions to find coefficients and constants
-    coef_pattern = re.compile(r"([+\-]?[0-9]?)X")
-    const_pattern = re.compile(r"([+\-]?[0-9]+)")
+    #gets values split up into different lists
+    left_x_values = [int(x_val) for x_val in re.findall("(-?\d*)X", left)]
+    #left_constants = [int(constant) for constant in re.findall("([+-]?\d+)(?!\s*\d*X)", left)]
+    left_test = re.findall("(\W+\d+)(?!\s*\d*X)(?!\D+\d*X)", left)
+    left_constants = [int(s.translate({ord(c): None for c in string.whitespace})) for s in left_test]
 
-    # Extract coefficients and constants
-    left_coefs = [int(x) if x != "" else 1 for x in coef_pattern.findall(left)]
-    left_consts = [int(x) for x in const_pattern.findall(left)]
+    #groups x values together
+    right_x_values = [int(x_val) for x_val in re.findall("(-?\d*)X", right)]
 
-    right_coefs = [int(x) if x != "" else 1 for x in coef_pattern.findall(right)]
-    right_consts = [int(x) for x in const_pattern.findall(right)]
+    #group constants together
+    left_constant_total = 0
+    for x in left_constants:
+        left_constant_total += x
 
-    # Calculate the final coefficients and constants
-    final_coef = sum(left_coefs) - sum(right_coefs)
-    final_const = sum(right_consts) - sum(left_consts)
-
-    # Check if the equation has a unique solution, no solution or infinite solutions
-    if final_coef == 0 and final_const == 0:
-        return("Infinite solutions")
-    elif final_coef == 0:
-        return("No solution")
-    else:
-        x = final_const / final_coef
-        return(x)
-
-def main():
-    equation = generate_equation()
-    xValue = solve_equation(equation)
-    xValueRound = round(xValue, 2)
-
-    print(equation)
-    print(xValue)
-    print(xValueRound)
-
+    #print("Left X values:", left_x_values)
+    #print("Right X values:", right_x_values)
+    #print("Left constants:", left_constants)
     
+    #print("Right constants:", right_constants)
+    #print("Left test:", integer_array)
+
+    x_values_total = right_x_values[0] - left_x_values[0]
+    #print(left_constant_total)
+    #print(x_values_total)
+
+    #divide constants by X values to get answer
+    answer = left_constant_total / x_values_total
+    return round(answer,2) #Return answer rounded to 2 decimal places
 
 if __name__ == "__main__":
-    main()
+    print(generate_equation())

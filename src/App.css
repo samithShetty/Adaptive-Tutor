@@ -25,7 +25,6 @@ label {
 input {
   margin: 0.5rem 0;
   padding: 1rem;
-  border: none;
   border-radius: 20px;
 }
 
@@ -40,4 +39,11 @@ button {
 .link-btn {
   background: none;
   text-decoration: underline;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
