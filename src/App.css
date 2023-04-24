@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(79deg, #647687ff, #bac8d3ff);
+}
+
+.auth-form-container, .login-form, .register-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-button, .register-button{
+  background-color:#31394d;
+  color: white;
+  font-size: 16px;
+}
+
+.problem-container{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(79deg, #647687ff, #bac8d3ff);
+}
+
+.prob-check-button{
+  margin-left: 10px;
+  background-color:#31394d;
+  color: white;
+}
+
+.loginTitle, .registerTitle, .problemTitle, .problemText{
+  color: #31394d;
+}
+
+.problemText{
+  background-color: #bac8d3ff;
+  padding: 30px;
+  border-radius: 30px;
+  margin-bottom: 10px;
+}
+
+.problemTitle{
+  margin-bottom: 10px;
+}
+
+label {
+  text-align: left;
+  padding: 0.25rem 0;
+}
+
+input {
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+button {
+  border: none;
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.link-btn {
+  background: none;
+  text-decoration: underline;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
