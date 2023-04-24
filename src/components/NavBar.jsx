@@ -17,9 +17,6 @@ export const NavBar = () => {
             <li>
                 <a href="/topics">Topics</a>
             </li>
-            <li>
-                <a href="/problem">Practice</a>
-            </li>
         </ul>
     </nav>
   );

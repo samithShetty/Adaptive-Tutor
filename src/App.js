@@ -1,20 +1,23 @@
-import React , {useState, useEffect} from "react";
 import { Home } from "./pages/Home";
+import { NavBar } from "./components/NavBar";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
-import { Problem } from "./pages/Problem";
-import { NavBar } from "./components/NavBar";
+import { Topics } from "./pages/Topics";
+import { LinearEquation } from "./MathProblems/LinearEquation";
+import { ContinuousRandomVar } from "./MathProblems/ContinuousRandomVar";
+import { DiscreteProbability } from "./MathProblems/DiscreteProbability";
+import { SamplingDistribution } from "./MathProblems/SamplingDistribution";
 import "./App.css"
 
 
 function App() {
-  let component
+  let component;
   switch (window.location.pathname) {
     case "/":
       component = <Home />
       break
     case "/topics":
-      //component = <Topics />
+      component = <Topics />
       break
     case "/login":
       component = <Login />
@@ -22,8 +25,17 @@ function App() {
     case "/register":
       component = <Register />
       break
-    case "/problem":
-      component = <Problem />
+    case "/problem/crv":
+      component = <ContinuousRandomVar />
+      break
+    case "/problem/dp":
+        component = <DiscreteProbability />
+        break
+    case "/problem/le":
+      component = <LinearEquation />
+      break
+    case "/problem/sd":
+      component = <SamplingDistribution />
       break
       
   }

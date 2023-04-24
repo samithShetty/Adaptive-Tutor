@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 
-export const Problem = () => {
+export const LinearEquation = () => {
     const [problem, setProblem] = useState('');
     const [answer, setAnswer] = useState('');
     const [userAnswer, setUserAnswer] = useState('');
