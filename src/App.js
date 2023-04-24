@@ -1,26 +1,33 @@
 import React , {useState, useEffect} from "react";
-import { BrowserRouter, Route, Link } from "react-router-dom";
-import "./App.css";
-import {Login} from "./pages/Login";
+import { Home } from "./pages/Home";
+import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Problem } from "./pages/Problem";
+import { NavBar } from "./NavBar";
 
 function App() {
-  const [currentForm, setCurrentForm] = useState('login');
-
-  const toggleForm = (formName) => {
-    setCurrentForm(formName);
+  let component
+  switch (window.location.pathname) {
+    case "/":
+      component = <Home />
+      break
+    case "/topics":
+      //component = <Topics />
+      break
+    case "/login":
+      component = <Login />
+      break
+    case "/register":
+      component = <Register />
+      break
+      
   }
 
   return (
-/*
-      <div className="App">
-        {
-          currentForm === "login" ? <Login onFormSwitch={toggleForm}/> : <Register onFormSwitch={toggleForm}/> 
-        }
-      </div>
-*/
-        <Problem/>
+        <>
+          <NavBar/>
+          {component}
+        </>
   );
 }
 
