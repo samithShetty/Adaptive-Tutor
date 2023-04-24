@@ -11,13 +11,13 @@ export const Login = () => {
     
     return (
       <div className="auth-form-container">
-        <h1>Login</h1>
+        <h1 className="loginTitle">Login</h1>
         <form className="login-form" onSubmit={handleSubmit}>
             <label htmlFor="username">username</label>
             <input value = {username} onChange={(e)=> setUsername(e.target.value)} type="username" placeholder="username" id = "username" name = "username"/>
             <label htmlFor="password">password</label>
             <input value = {password} onChange={(e)=> setPassword(e.target.value)}type="password" placeholder="********" id = "password" name = "password"/>
-            <button type="submit">Log In</button>
+            <button type="submit" className='login-button'>Log In</button>
         </form>
         <a href="/register">
           <button className="link-btn">Don't have an account? Register Here!</button>

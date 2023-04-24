@@ -12,7 +12,7 @@ export const NavBar = () => {
                 <a href="/">Home</a>
             </li>
             <li>
-                <a href="/login">Login</a>
+                <a href="/login">Sign In</a>
             </li>
             <li>
                 <a href="/topics">Topics</a>

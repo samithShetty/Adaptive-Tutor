@@ -3,7 +3,9 @@ import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Problem } from "./pages/Problem";
-import { NavBar } from "./NavBar";
+import { NavBar } from "./components/NavBar";
+import "./App.css"
+
 
 function App() {
   let component
@@ -19,6 +21,9 @@ function App() {
       break
     case "/register":
       component = <Register />
+      break
+    case "/problem":
+      component = <Problem />
       break
       
   }

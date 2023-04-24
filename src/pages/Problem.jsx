@@ -27,12 +27,12 @@ export const Problem = () => {
     }
 
     return (
-        <div>
-            <h1>Problem</h1>
-            <h2>{problem}</h2>
+        <div className="problem-container">
+            <h1 className="problemTitle">Problem</h1>
+            <h2 className="problemText">{problem}</h2>
             <form className="math-problem" onSubmit={checkAnswer}>
                 <input value = {userAnswer} onChange={(e)=> setUserAnswer(e.target.value)} type="number" placeholder="answer" id = "answer" name = "answer"/>
-                <button type="submit">Submit</button>
+                <button type="submit" className="prob-check-button">Submit</button>
             </form>
 
         </div>
