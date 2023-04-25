@@ -6,7 +6,7 @@ export const LinearEquation = () => {
     const [userAnswer, setUserAnswer] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:5000/problem')
+        fetch('http://localhost:5000/problem/le')
           .then(response => response.json())
           .then(data => {
             setProblem(data.problem);
@@ -21,6 +21,7 @@ export const LinearEquation = () => {
         console.log(userAnswer,answer);
         if (userAnswer == answer) {
             alert("Correct!");
+            window.location.reload(false);
         } else {
             alert("Incorrect!");
         }

@@ -1,27 +1,21 @@
 import os
 import random
-from PIL import Image
 
-def generateEquation(folderPath):
+def generateEquation(topic):
+    image_folder_path = os.getcwd() + "\\imageProblems"
      # Get a list of image file names in the folder
-    image_files = [f for f in os.listdir(folderPath) if f.lower().endswith(('.png'))]
+    image_files = [f for f in os.listdir(image_folder_path) if f.lower().endswith(('.png')) and f.startswith(topic)]
 
     # Select a random image file
     random_image_file = random.choice(image_files)
 
     # Create a full file path to the selected image
-    image_path = os.path.join(folderPath, random_image_file)
+    image_path = os.path.join(image_folder_path, random_image_file)
     #print(image_path)
-
-    # Open and display the image
-    #with Image.open(image_path) as img:
-        #img.show()
-
     return image_path
 
 def ImageAnswer(imagePath):
     imagePath = imagePath.split('\\')[-1]
-    print(imagePath)
     if imagePath == "Discrete_Probability_1.png":
         return 0.41
     elif imagePath == "Discrete_Probability_2.png":
@@ -79,9 +73,9 @@ def ImageAnswer(imagePath):
 
 
 def main():
-    folderPath = 'B:\\School\\ITCS6112\\adaptive-tutor\\backend\\imageProblems'
-    imagePath = generateEquation(folderPath)
-    print(ImageAnswer(imagePath))
+    topic = input("Enter Topic: ")
+    imagePath = generateEquation(topic)
+    print(imagePath, ImageAnswer(imagePath))
     
 
 if __name__ == "__main__":
